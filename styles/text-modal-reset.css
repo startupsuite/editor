@@ -1,0 +1,33 @@
+/* Reset styles for the text modal */
+.text-modal-exact * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.text-modal-exact {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #000000;
+  line-height: 1.5;
+}
+
+/* Ensure the modal has the correct styling */
+.text-modal-exact .bg-purple-50 {
+  background-color: #f5f3ff;
+}
+
+.text-modal-exact .hover\:bg-purple-100:hover {
+  background-color: #ede9fe;
+}
+
+.text-modal-exact .text-blue-600 {
+  color: #2563eb;
+}
+
+.text-modal-exact .border-blue-600 {
+  border-color: #2563eb;
+}
+
+.text-modal-exact .bg-blue-600 {
+  background-color: #2563eb;
+}

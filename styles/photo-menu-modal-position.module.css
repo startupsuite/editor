@@ -1,0 +1,38 @@
+.modalContainer {
+  position: absolute;
+  top: 64px; /* Height of the top bar */
+  left: 90px; /* Width of the left menu bar */
+  bottom: 0;
+  width: 380px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #e5e7eb;
+  overflow-y: auto;
+  z-index: 100;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Media queries for responsive behavior */
+@media (max-width: 768px) {
+  .modalContainer {
+    width: calc(100% - 90px);
+  }
+}
+
+@media (max-width: 640px) {
+  .modalContainer {
+    left: 0;
+    width: 100%;
+  }
+}
