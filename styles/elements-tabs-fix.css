@@ -1,0 +1,42 @@
+/* Direct style overrides for tabs in elements modal */
+.elements-modal .tabs-container button,
+.elements-modal [role="tablist"] button,
+.elements-modal [class*="TabsList"] button {
+  color: #666666 !important;
+}
+
+.elements-modal .tabs-container button[aria-selected="true"],
+.elements-modal .tabs-container button.active,
+.elements-modal [role="tablist"] button[aria-selected="true"],
+.elements-modal [role="tablist"] button.active,
+.elements-modal [class*="TabsList"] button[aria-selected="true"],
+.elements-modal [class*="TabsList"] button.active,
+.elements-modal [class*="TabsList"] button[data-state="active"] {
+  color: #000000 !important;
+}
+
+.elements-modal .tabs-container button[aria-selected="true"]::after,
+.elements-modal .tabs-container button.active::after,
+.elements-modal [role="tablist"] button[aria-selected="true"]::after,
+.elements-modal [role="tablist"] button.active::after,
+.elements-modal [class*="TabsList"] button[aria-selected="true"]::after,
+.elements-modal [class*="TabsList"] button.active::after,
+.elements-modal [class*="TabsList"] button[data-state="active"]::after {
+  background-color: #000000 !important;
+}
+
+/* Override any inline styles */
+.elements-modal [style*="color"] {
+  color: inherit !important;
+}
+
+.elements-modal [style*="background"] {
+  background-color: inherit !important;
+}
+
+/* Specific override for the tab indicator */
+.elements-modal .tab-indicator,
+.elements-modal [class*="indicator"],
+.elements-modal [class*="active"]::after {
+  background-color: #000000 !important;
+}

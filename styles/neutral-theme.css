@@ -1,0 +1,115 @@
+/* Neutral theme styles with high specificity to override any conflicting styles */
+.elements-modal-neutral {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+}
+
+.elements-modal-neutral h2,
+.elements-modal-neutral h3,
+.elements-modal-neutral h4 {
+  color: #333333 !important;
+}
+
+.elements-modal-neutral p {
+  color: #666666 !important;
+}
+
+.elements-modal-neutral .shape-card {
+  background-color: #f5f5f5 !important;
+}
+
+.elements-modal-neutral .shape-card:hover {
+  background-color: #e8e8e8 !important;
+}
+
+.elements-modal-neutral .shape-icon {
+  color: #000000 !important;
+  background-color: #000000 !important;
+}
+
+.elements-modal-neutral .shape-name {
+  color: #333333 !important;
+}
+
+/* Tab styles - Ensure these have high specificity */
+.elements-modal-neutral .tab,
+.elements-modal-neutral [role="tab"],
+.elements-modal-neutral button[role="tab"],
+.elements-modal-neutral [class*="TabsTrigger"] {
+  color: #666666 !important;
+}
+
+.elements-modal-neutral .tab.active,
+.elements-modal-neutral [role="tab"][aria-selected="true"],
+.elements-modal-neutral button[role="tab"][aria-selected="true"],
+.elements-modal-neutral [class*="TabsTrigger"][data-state="active"] {
+  color: #000000 !important;
+}
+
+.elements-modal-neutral .tab.active::after,
+.elements-modal-neutral [role="tab"][aria-selected="true"]::after,
+.elements-modal-neutral button[role="tab"][aria-selected="true"]::after,
+.elements-modal-neutral [class*="TabsTrigger"][data-state="active"]::after,
+.elements-modal-neutral [class*="active"] [class*="indicator"],
+.elements-modal-neutral [class*="indicator"] {
+  background-color: #000000 !important;
+}
+
+.elements-modal-neutral .slider-track {
+  background-color: #e0e0e0 !important;
+}
+
+.elements-modal-neutral .slider-fill,
+.elements-modal-neutral .slider-thumb {
+  background-color: #000000 !important;
+}
+
+.elements-modal-neutral .border-style-button {
+  background-color: #f5f5f5 !important;
+  color: #333333 !important;
+}
+
+.elements-modal-neutral .border-style-button.active {
+  background-color: #e0e0e0 !important;
+  color: #000000 !important;
+}
+
+.elements-modal-neutral .border-style-button:hover:not(.active) {
+  background-color: #e8e8e8 !important;
+}
+
+/* Override any Material 3 or other theme styles */
+[class*="md-primary"],
+[class*="md-secondary"],
+[class*="md-tertiary"] {
+  color: inherit !important;
+  background-color: inherit !important;
+}
+
+/* Ensure triangle shapes are black */
+.elements-modal-neutral [class*="triangle"],
+.elements-modal-neutral [style*="border-bottom"] {
+  border-bottom-color: #000000 !important;
+}
+
+/* Additional overrides for tabs */
+.elements-modal-neutral div[class*="Tabs"] button,
+.elements-modal-neutral div[role="tablist"] button {
+  color: #666666 !important;
+}
+
+.elements-modal-neutral div[class*="Tabs"] button[aria-selected="true"],
+.elements-modal-neutral div[role="tablist"] button[aria-selected="true"],
+.elements-modal-neutral div[class*="Tabs"] button[data-state="active"],
+.elements-modal-neutral div[role="tablist"] button[data-state="active"] {
+  color: #000000 !important;
+}
+
+.elements-modal-neutral div[class*="Tabs"] button[aria-selected="true"]::after,
+.elements-modal-neutral div[role="tablist"] button[aria-selected="true"]::after,
+.elements-modal-neutral div[class*="Tabs"] button[data-state="active"]::after,
+.elements-modal-neutral div[role="tablist"] button[data-state="active"]::after,
+.elements-modal-neutral div[class*="Tabs"] div[class*="indicator"],
+.elements-modal-neutral div[role="tablist"] div[class*="indicator"] {
+  background-color: #000000 !important;
+}
