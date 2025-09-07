@@ -1,0 +1,78 @@
+/* CSS Reset specifically for the Elements modal */
+.elements-modal-reset * {
+  color: initial;
+  background-color: initial;
+  border-color: initial;
+}
+
+.elements-modal-reset {
+  --md-primary: #000000 !important;
+  --md-primary-container: #f5f5f5 !important;
+  --md-on-primary: #ffffff !important;
+  --md-on-primary-container: #000000 !important;
+  --md-secondary: #333333 !important;
+  --md-secondary-container: #e0e0e0 !important;
+  --md-on-secondary: #ffffff !important;
+  --md-on-secondary-container: #000000 !important;
+  --md-tertiary: #666666 !important;
+  --md-tertiary-container: #e8e8e8 !important;
+  --md-on-tertiary: #ffffff !important;
+  --md-on-tertiary-container: #000000 !important;
+}
+
+/* Direct style overrides with high specificity */
+.elements-modal-reset [class*="shape-card"],
+.elements-modal-reset div[class*="shape-card"] {
+  background-color: #f5f5f5 !important;
+}
+
+.elements-modal-reset [class*="shape-card"]:hover,
+.elements-modal-reset div[class*="shape-card"]:hover {
+  background-color: #e8e8e8 !important;
+}
+
+/* Ensure all shapes are black */
+.elements-modal-reset [class*="rect"],
+.elements-modal-reset [class*="circle"],
+.elements-modal-reset [class*="line"] {
+  background-color: #000000 !important;
+}
+
+/* Handle triangle shapes specifically */
+.elements-modal-reset [class*="triangle"],
+.elements-modal-reset div[style*="border-bottom"] {
+  border-bottom-color: #000000 !important;
+}
+
+/* Handle text colors */
+.elements-modal-reset h1,
+.elements-modal-reset h2,
+.elements-modal-reset h3,
+.elements-modal-reset h4,
+.elements-modal-reset h5,
+.elements-modal-reset h6 {
+  color: #333333 !important;
+}
+
+.elements-modal-reset p,
+.elements-modal-reset span,
+.elements-modal-reset div {
+  color: #666666 !important;
+}
+
+/* Handle tab indicators */
+.elements-modal-reset [role="tab"][aria-selected="true"]::after,
+.elements-modal-reset .tab.active::after {
+  background-color: #000000 !important;
+}
+
+/* Handle slider components */
+.elements-modal-reset [role="slider"] .track,
+.elements-modal-reset .slider-track {
+  background-color: #e0e0e0 !important;
+}
+
+.elements-modal-reset [role="slider"] .thumb,
+.elements-modal-reset .slider-thumb {
+  background-color: #000000 !important;
+}
