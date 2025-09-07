@@ -1,0 +1,1218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import our reset styles */
+@import "../styles/elements-modal-reset.css";
+@import "../styles/neutral-theme.css";
+@import "../styles/elements-tabs-fix.css";
+@import "../styles/text-modal.css";
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --primary: 265 89% 42%; /* Material 3 primary color */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --radius: 0.5rem;
+
+    /* Material 3 Expression specific tokens */
+    --surface-container-lowest: 0 0% 98%;
+    --surface-container-low: 0 0% 96%;
+    --surface-container: 0 0% 94%;
+    --surface-container-high: 0 0% 92%;
+    --surface-container-highest: 0 0% 90%;
+
+    --on-surface: 0 0% 10%;
+    --on-surface-variant: 0 0% 30%;
+
+    --outline: 0 0% 80%;
+    --outline-variant: 0 0% 85%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --primary: 265 89% 70%; /* Material 3 primary color for dark mode */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    /* Material 3 Expression specific tokens for dark mode */
+    --surface-container-lowest: 0 0% 10%;
+    --surface-container-low: 0 0% 12%;
+    --surface-container: 0 0% 14%;
+    --surface-container-high: 0 0% 16%;
+    --surface-container-highest: 0 0% 18%;
+
+    --on-surface: 0 0% 90%;
+    --on-surface-variant: 0 0% 80%;
+
+    --outline: 0 0% 40%;
+    --outline-variant: 0 0% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Material 3 Design Tokens - Updated for blue theme */
+:root {
+  /* Material 3 color tokens - Updated to blue theme */
+  --md-sys-color-primary: #1a73e8;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #d1e4ff;
+  --md-sys-color-on-primary-container: #001d36;
+  --md-sys-color-secondary: #4e616f;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #d1e5f7;
+  --md-sys-color-on-secondary-container: #0c1d2a;
+  --md-sys-color-tertiary: #1967d2;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #cfe5ff;
+  --md-sys-color-on-tertiary-container: #001d35;
+  --md-sys-color-error: #b3261e;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #f9dedc;
+  --md-sys-color-on-error-container: #410e0b;
+  --md-sys-color-surface: #fffbfe;
+  --md-sys-color-on-surface: #1c1b1f;
+  --md-sys-color-surface-variant: #e7e0ec;
+  --md-sys-color-on-surface-variant: #49454f;
+  --md-sys-color-outline: #79747e;
+  --md-sys-color-outline-variant: #c4c7c5;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-surface-tint: #1a73e8;
+  --md-sys-color-inverse-surface: #313033;
+  --md-sys-color-inverse-on-surface: #f4eff4;
+
+  /* Material 3 elevation tokens */
+  --md-sys-elevation-level0: none;
+  --md-sys-elevation-level1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3);
+
+  /* Material 3 typography tokens */
+  --md-sys-typescale-title-large-font-family: var(--font-roboto);
+  --md-sys-typescale-title-large-font-weight: 400;
+  --md-sys-typescale-title-large-font-size: 22px;
+  --md-sys-typescale-title-large-line-height: 28px;
+
+  --md-sys-typescale-title-medium-font-family: var(--font-roboto);
+  --md-sys-typescale-title-medium-font-weight: 500;
+  --md-sys-typescale-title-medium-font-size: 16px;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-medium-letter-spacing: 0.15px;
+
+  --md-sys-typescale-label-large-font-family: var(--font-roboto);
+  --md-sys-typescale-label-large-font-weight: 500;
+  --md-sys-typescale-label-large-font-size: 14px;
+  --md-sys-typescale-label-large-line-height: 20px;
+  --md-sys-typescale-label-large-letter-spacing: 0.1px;
+}
+
+/* Material 3 Top App Bar - Updated to blue */
+.md3-top-app-bar {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #1a73e8; /* Updated to blue */
+  color: #ffffff; /* Updated to white for better contrast */
+  box-shadow: var(--md-sys-elevation-level1);
+  position: relative;
+  z-index: 10;
+}
+
+/* Material 3 Typography Classes - Updated for better contrast with blue background */
+.md3-title-large {
+  font-family: var(--md-sys-typescale-title-large-font-family);
+  font-weight: var(--md-sys-typescale-title-large-font-weight);
+  font-size: var(--md-sys-typescale-title-large-font-size);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  color: #ffffff; /* Updated to white for top bar */
+}
+
+.md3-title-medium {
+  font-family: var(--md-sys-typescale-title-medium-font-family);
+  font-weight: var(--md-sys-typescale-title-medium-font-weight);
+  font-size: var(--md-sys-typescale-title-medium-font-size);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing);
+  color: var(--md-sys-color-on-surface);
+}
+
+.md3-label-large {
+  font-family: var(--md-sys-typescale-label-large-font-family);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* Material 3 Button Styles - Updated for blue theme */
+.md3-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 20px;
+  font-family: var(--md-sys-typescale-label-large-font-family);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.md3-button-filled {
+  background-color: #1a73e8; /* Updated to blue */
+  color: #ffffff;
+  border: none;
+}
+
+.md3-button-filled:hover {
+  box-shadow: var(--md-sys-elevation-level1);
+  background-color: #1967d2; /* Slightly darker blue */
+}
+
+.md3-button-outlined {
+  background-color: transparent;
+  color: #1a73e8; /* Updated to blue */
+  border: 1px solid var(--md-sys-color-outline);
+}
+
+.md3-button-outlined:hover {
+  background-color: rgba(26, 115, 232, 0.08); /* Blue with 8% opacity */
+}
+
+/* Material 3 Icon Button - Updated for top bar */
+.md3-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #ffffff; /* Updated to white for top bar */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.md3-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity for top bar */
+}
+
+/* Material 3 State Layer */
+.md3-state-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Material 3 Avatar - Updated for blue theme */
+.md3-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #d1e4ff; /* Updated for blue theme */
+  color: #1a73e8; /* Updated to blue */
+  font-family: var(--md-sys-typescale-title-medium-font-family);
+  font-size: var(--md-sys-typescale-title-medium-font-size);
+  font-weight: var(--md-sys-typescale-title-medium-font-weight);
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-roboto), sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #191c1e;
+  background-color: #f0f0f0;
+}
+
+/* Top bar styles - Updated to blue */
+.top-bar {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #1a73e8; /* Updated to blue */
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header actions */
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Button styles - Updated for blue theme */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Updated for better contrast on blue */
+  color: #ffffff; /* Updated to white */
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+}
+
+.btn-primary {
+  background-color: #ffffff; /* White button on blue background */
+  border: none;
+  color: #1a73e8; /* Blue text */
+}
+
+.btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+}
+
+.share-icon {
+  width: 16px;
+  height: 16px;
+  color: #ffffff; /* Updated to white */
+}
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+/* Font styles */
+.font-roboto {
+  font-family: var(--font-roboto), sans-serif;
+}
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+.font-playfair {
+  font-family: var(--font-playfair), serif;
+}
+.font-merriweather {
+  font-family: var(--font-merriweather), serif;
+}
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+.font-opensans {
+  font-family: var(--font-opensans), sans-serif;
+}
+
+/* Canvas area styles */
+.canvas-area {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slide styles - v31 style with improvements */
+.slide {
+  position: relative;
+  width: min(720px, 90vw);
+  height: min(405px, 80vh);
+  aspect-ratio: 16 / 9;
+  background-color: white;
+  box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Visual indicator for slide boundaries */
+.slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+/* Text styles */
+.text-heading1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.text-heading2 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.text-heading3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.text-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  font-style: italic;
+}
+.text-body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.text-quote {
+  font-size: 18px;
+  line-height: 1.5;
+  font-style: italic;
+  border-left: 4px solid #1a73e8; /* Updated to blue */
+  padding-left: 12px;
+}
+
+/* Canva-specific styles - Updated for blue theme */
+.canva-button {
+  background-color: #1a73e8; /* Updated to blue */
+  color: white;
+  border-radius: theme("borderRadius.md-md");
+  font-weight: 500;
+  transition-property: all;
+  transition-duration: 200ms;
+}
+
+.canva-button:hover {
+  opacity: 0.9;
+}
+
+.canva-gradient-header {
+  background-image: linear-gradient(90deg, #1a73e8 0%, #1967d2 100%); /* Updated to blue gradient */
+  color: white;
+}
+
+/* Side panel styles */
+.side-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 18rem; /* 72px */
+  background-color: white;
+  box-shadow: theme("boxShadow.md-elevation-2");
+  transform: translateX(-100%);
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 30;
+}
+
+.side-panel.open {
+  transform: translateX(0);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid theme("colors.md-outline-variant");
+}
+
+.panel-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: theme("colors.md-on-surface");
+}
+
+.panel-close {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: theme("colors.md-on-surface-variant");
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 200ms;
+}
+
+.panel-close:hover {
+  background-color: theme("colors.md-surface-variant");
+  opacity: 0.4;
+}
+
+/* Tab styles - Updated for blue theme */
+.tab-container {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  text-align: center;
+  color: #666666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.tab.active {
+  color: #1a73e8; /* Updated to blue */
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1a73e8; /* Updated to blue */
+}
+
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid theme("colors.md-outline-variant");
+  margin-bottom: 1rem;
+}
+
+.tab {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  text-align: center;
+  transition-property: color;
+  transition-duration: 200ms;
+}
+
+.tab.active {
+  color: #1a73e8; /* Updated to blue */
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1a73e8; /* Updated to blue */
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Fix for the shape-card class - avoiding @apply with arbitrary values */
+.shape-card {
+  background-color: #e8f0fe; /* Updated for blue theme */
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100px;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.shape-card:hover {
+  background-color: #d2e3fc; /* Updated for blue theme */
+}
+
+.shape-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.shape-name {
+  font-size: 0.75rem;
+  color: #333333;
+  font-weight: normal;
+}
+
+.shape-card {
+  background-color: white;
+  border-radius: theme("borderRadius.md-md");
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100px;
+  box-shadow: theme("boxShadow.md-elevation-1");
+  transition-property: all;
+  transition-duration: 200ms;
+  position: relative;
+  overflow: hidden;
+}
+
+.shape-card:hover {
+  box-shadow: theme("boxShadow.md-elevation-2");
+  transform: translateY(-2px);
+}
+
+.shape-card:active {
+  transform: scale(0.98);
+}
+
+.shape {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+  transition-property: transform;
+  transition-duration: 200ms;
+}
+
+.shape-name {
+  font-size: 0.75rem;
+  color: theme("colors.md-on-surface");
+}
+
+.text-example {
+  margin-bottom: 0.5rem;
+  transition-property: transform;
+  transition-duration: 200ms;
+}
+
+/* Material Design button - Updated for blue theme */
+.md-button {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition-property: all;
+  transition-duration: 200ms;
+}
+
+.md-button.filled {
+  border: none;
+  background-color: #1a73e8; /* Updated to blue */
+  color: white;
+  box-shadow: theme("boxShadow.md-elevation-1");
+}
+
+.md-button.filled:hover {
+  box-shadow: theme("boxShadow.md-elevation-2");
+}
+
+.md-button.outlined {
+  border: 1px solid theme("colors.md-outline");
+  background-color: transparent;
+  color: #1a73e8; /* Updated to blue */
+}
+
+.md-button.text {
+  border: none;
+  background-color: transparent;
+  color: #1a73e8; /* Updated to blue */
+}
+
+/* Drag and drop animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.drag-preview {
+  animation: pulse 1.5s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.drop-indicator {
+  animation: pulse 1s infinite ease-in-out;
+}
+
+/* Improve transitions for smoother interactions */
+.draggable-element {
+  transition: transform 0.05s ease-out, box-shadow 0.2s ease-in-out;
+  will-change: transform, left, top, width, height;
+}
+
+.draggable-element.dragging {
+  transition: none;
+  opacity: 0.7;
+}
+
+.resize-handle {
+  transition: transform 0.1s ease-out;
+}
+
+.resize-handle:hover {
+  transform: scale(1.2);
+}
+
+/* Ripple animation */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 0.6s linear;
+}
+
+/* Custom slider styles - Updated for blue theme */
+.custom-slider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, #1a73e8, #1967d2); /* Updated to blue gradient */
+  border-radius: 9999px;
+  position: relative;
+}
+
+.slider-thumb {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border: 2px solid #1a73e8; /* Updated to blue */
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Border style button styles - Updated for blue theme */
+.border-style-button {
+  flex: 1;
+  padding: 0.5rem 0;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.border-style-button.active {
+  background-color: #d2e3fc; /* Updated for blue theme */
+  color: #1a73e8; /* Updated to blue */
+}
+
+.border-style-button:not(.active) {
+  background-color: #e8f0fe; /* Updated for blue theme */
+  color: #333333;
+}
+
+.border-style-button:not(.active):hover {
+  background-color: #d2e3fc; /* Updated for blue theme */
+}
+
+/* Slide Editor Styles */
+.slide-editor-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  background-color: #f5f5f5; /* Light grey background matching the design spec */
+  flex: 1 1 auto;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.slide-editor-container:focus-visible {
+  outline: 2px solid #1a73e8; /* Updated to blue */
+  outline-offset: 2px;
+}
+
+.editor-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* New slide container styles */
+.slide-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: auto;
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
+/* Slide content styles */
+.slide-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  transform-origin: 0 0;
+}
+
+/* Empty state message */
+.slide-empty-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Keyboard shortcuts panel animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.keyboard-shortcuts-panel {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.keyboard-shortcut-key {
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+/* Add these scrollbar styles at the end of the file */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Canva-style thumbnail styles */
+.slide-thumbnail {
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.slide-thumbnail:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.slide-thumbnail.active {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px #1a73e8;
+}
+
+/* Slide page number indicator */
+.slide-page-number {
+  font-size: 11px;
+  color: #5f6368;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Zoom controls dropdown */
+.zoom-presets-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  min-width: 100px;
+  overflow: hidden;
+}
+
+.zoom-preset-item {
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.zoom-preset-item:hover {
+  background-color: #f5f5f5;
+}
+
+.zoom-preset-item.active {
+  font-weight: 600;
+  background-color: #f0f0f0;
+}
+
+/* Material 3 Expression animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Material 3 Expression elevation classes */
+.elevation-1 {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.elevation-2 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.elevation-3 {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.elevation-4 {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.elevation-5 {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Material 3 Expression surface containers */
+.surface-container-lowest {
+  @apply bg-[hsl(var(--surface-container-lowest))];
+}
+
+.surface-container-low {
+  @apply bg-[hsl(var(--surface-container-low))];
+}
+
+.surface-container {
+  @apply bg-[hsl(var(--surface-container))];
+}
+
+.surface-container-high {
+  @apply bg-[hsl(var(--surface-container-high))];
+}
+
+.surface-container-highest {
+  @apply bg-[hsl(var(--surface-container-highest))];
+}
+
+/* Material 3 Expression text styles */
+.on-surface {
+  @apply text-[hsl(var(--on-surface))];
+}
+
+.on-surface-variant {
+  @apply text-[hsl(var(--on-surface-variant))];
+}
+
+/* Material 3 Expression border styles */
+.outline {
+  @apply border-[hsl(var(--outline))];
+}
+
+.outline-variant {
+  @apply border-[hsl(var(--outline-variant))];
+}
+
+/* Material 3 Expression component animations */
+.m3-modal {
+  animation: scaleIn 0.2s ease-out;
+}
+
+.m3-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Material 3 Expression specific styles */
+@layer components {
+  /* Shape card styles */
+  .shape-card {
+    @apply bg-[#f8f5ff] rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer h-[100px] hover:bg-[#f0ebff] transition-all relative overflow-hidden;
+  }
+
+  /* Tab styles */
+  .m3-tab {
+    @apply flex-1 py-3 text-sm font-medium relative;
+  }
+
+  .m3-tab.active {
+    @apply text-[#6750A4];
+  }
+
+  .m3-tab.active::after {
+    @apply absolute bottom-[-1px] left-0 w-full h-[2px] bg-[#6750A4];
+    content: "";
+  }
+
+  /* Slider styles */
+  .m3-slider {
+    @apply w-full h-1 bg-[#e0e0e0] rounded-sm relative cursor-pointer;
+  }
+
+  .m3-slider-track {
+    @apply absolute left-0 top-0 h-full bg-[#6750A4] rounded-sm;
+  }
+
+  .m3-slider-thumb {
+    @apply absolute top-1/2 w-4 h-4 bg-[#6750A4] border-2 border-white rounded-full shadow-md cursor-pointer;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Button styles */
+  .m3-button {
+    @apply py-2 rounded-full text-sm;
+  }
+
+  .m3-button.active {
+    @apply bg-[#E8DEF8] text-[#6750A4];
+  }
+
+  .m3-button.inactive {
+    @apply bg-[#F5EFFE] text-[#333333] hover:bg-[#E8DEF8];
+  }
+}
+
+/* Add these neutral color scheme styles at the end of the file */
+
+/* Neutral color scheme for modals */
+.neutral-modal {
+  background-color: white;
+  color: #333333;
+}
+
+.neutral-card {
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+.neutral-card:hover {
+  background-color: #e8e8e8;
+}
+
+.neutral-tab {
+  color: #666666;
+}
+
+.neutral-tab.active {
+  color: #000000;
+}
+
+.neutral-tab.active::after {
+  background-color: #000000;
+}
+
+.neutral-slider-track {
+  background-color: #e0e0e0;
+}
+
+.neutral-slider-thumb {
+  background-color: #000000;
+  border-color: white;
+}
+
+.neutral-button {
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+.neutral-button:hover {
+  background-color: #e8e8e8;
+}
+
+.neutral-button.active {
+  background-color: #e0e0e0;
+  color: #000000;
+}
+
+/* Shape styles for neutral theme */
+.neutral-shape {
+  background-color: #000000;
+}
+
+.neutral-shape-border {
+  border-color: #000000;
+}
+
+.neutral-text {
+  color: #333333;
+}
+
+.neutral-heading {
+  color: #000000;
+}
